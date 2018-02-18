@@ -1,0 +1,21 @@
+<!-- VUE : Lecture d'un "topic" : http://jforum.locahost/index/read/topic/# -->
+<?php
+foreach ($this->messages as $m) {
+    echo '<div class="listeMessages">';
+        echo '<div style="height: 25px; border-bottom: 1px solid #708090;">';
+        echo '<div style="float: left;">';
+            echo '<a href="/index/read/topic/' . $m['topic']['id'] . '#' . $m['info']['id'] . '" name="' . $m['info']['id'] . '">#</a>';
+            echo ' <b>' . $m['info']['title'] . '</b>';
+        echo '</div>';
+        echo '<div style="float: right">' . $m['info']['date'] . ' par ' . (isset($m['user']) ? '<a href="/user/profile/see/' . $m['user']['id'] . '">' . $m['user']['login'] . '</a>' : 'Invité') . '</div>';
+        echo '</div>';
+        echo '<div style="padding: 5px; text-align: justify;">';
+            echo nl2br($m['info']['content']);
+        echo '</div>';
+    echo '</div>';
+}
+?>
+
+<div id="action">
+    <a href="/index/post/topic/<?php echo $this->topic['id']; ?>">Poster un nouveau message</a>
+</div>

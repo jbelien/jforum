@@ -1,0 +1,58 @@
+<?php
+    // si l'utilisateur est authentifié le menu est différent
+    if ($this->auth) {
+        $menu[0]['ctrl'] = 'user'; $menu[0]['actn'] = 'list';      $menu[0]['text'] = 'Membres';
+        $menu[1]['ctrl'] = 'user'; $menu[1]['actn'] = 'profile';   $menu[1]['text'] = 'Profil';
+        $menu[2]['ctrl'] = 'user'; $menu[2]['actn'] = 'logout';    $menu[2]['text'] = 'Déconnexion';
+
+        $headUser = 'Bienvenue ' . $this->auth->login;
+    } else {
+        $menu[0]['ctrl'] = 'user'; $menu[0]['actn'] = 'login';    $menu[0]['text'] = 'Connexion';
+        $menu[1]['ctrl'] = 'user'; $menu[1]['actn'] = 'register'; $menu[1]['text'] = 'Inscription';
+
+        $headUser = '<a href="/user/login">Connectez-vous</a> ou <a href="/user/register">Inscrivez-vous</a> !';
+    }
+?>
+
+<!-- HEADER : Titre & Date -->
+<div id="header">
+    <div style="float: left;">
+        <h1><?php echo Zend_Registry::get('name'); ?></h1>
+        <h2><?php echo $this->title; ?></h2>
+    </div>
+    <div style="float: right;">
+        <div id="headInfo">
+            <?php $date = new Zend_Date(); echo $date; ?>
+        </div>
+        <div id="headUser">
+            <?php echo $headUser; ?>
+        </div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div>
+    <ul id="menu">
+        <li><a href="/" class="firstMenu<?php echo ($this->ctrl == 'index'   ? ' current' : ''); ?>">Accueil</a></li>
+        <?php
+        foreach ($menu as $m) {
+            echo '<li><a href="/'.$m['ctrl'].'/'.$m['actn'].'" '.($this->ctrl == $m['ctrl'] && $this->actn == $m['actn'] ? 'class="current"' : '').'>'.$m['text'].'</a></li>';
+        }
+        ?>
+    </ul>
+</div>
+
+<div style="border: 1px solid #F00; color: #F00; padding: 10px; margin-bottom: 10px;">
+    Pour cause de spam, il n'est plus possible de s'inscrire ou de poster un message.
+</div>
+
+<!-- NAVIGATION : Liens pour naviguer à travers les "category", "board" et "topic" -->
+<div id="nav">
+    <?php
+    echo Zend_Registry::get('name');
+    if (isset($this->soustitre))
+        echo ' &not; ' . $this->soustitre;
+    else
+        echo ' &not; ' . $this->title;
+    ?>
+</div>

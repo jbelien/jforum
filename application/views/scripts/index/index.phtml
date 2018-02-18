@@ -1,0 +1,32 @@
+<!-- VUE : Accueil : http://jforum.locahost/ || http://jforum.locahost/index -->
+<?php
+foreach ($this->boards as $c) {
+    echo '<div class="listeSections">';
+    echo '<div class="categorie"><b>' . $c['name'] . '</b></div>';
+    echo '<table>';
+    foreach ($c['boards'] as $s) {
+        $i = 0; $lastMsg = null;
+        foreach ($s['topics'] as $suj) {
+            $i = $i + count($suj['messages']);
+            $lastMsg = end($suj['messages']);
+        }
+        echo '<tr>';
+        echo '<td width="250"><a href="/index/read/board/' . $s['info']['id'] . '">' . $s['info']['name'] . '</a></td>';
+        echo '<td width="300">' . $s['info']['desc'] . '</td>';
+        echo '<td width="100">' . $i . ' message' . ($i > 1 ? 's' : '') . '</td>';
+        echo '<td>' . (isset($lastMsg) ? '<a href="/index/read/topic/' . $lastMsg['topic']['id'] . '#' . $lastMsg['info']['id'] . '"><img src="/img/msg.png" alt="M" /></a> ' . $lastMsg['info']['date'] . (isset($lastMsg['user']) ? ' par ' . '<a href="/user/profile/see/' . $lastMsg['user']['id'] . '">' . $lastMsg['user']['login'] . '</a>' : '') : '') . '</td>';
+        echo '</tr>';
+        if (!empty($s['sub'])) {
+            echo '<tr><td colspan="2" style="padding-left: 15px;">';
+            $i = 0;
+            foreach ($s['sub'] as $sub) {
+                if ($i++ > 0) echo ' - ';
+                echo '<a href="/index/read/board/' . $sub['info']['id'] . '">' . $sub['info']['name'] . '</a>';
+            }
+            echo '</td></tr>';
+        }
+    }
+    echo '</table>';
+    echo '</div>';
+}
+?>

@@ -1,0 +1,12 @@
+<!-- VUE : Suppression d'un "user" : http://jforum.locahost/user/profile/delete/# -->
+<div align="center" style="padding: 10px;">
+    <form action="/user/profile/delete/<?php echo $this->member->id; ?>" method="post" style="text-align: left; width: 400px;">
+        <p style="text-align: center; font-weight: bold;">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+
+        <label for="password1">Mot de passe :</label>
+        <input type="password" name="password" id="password" value="" size="35" />
+        <?php if (isset($this->errors['password'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['password'].'" />'; ?>
+
+        <p style="text-align: center;"><input type="submit" name="action" value="Supprimer" /></p>
+    </form>
+</div>

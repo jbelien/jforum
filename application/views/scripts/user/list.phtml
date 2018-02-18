@@ -1,0 +1,21 @@
+<!-- VUE : Liste des "user" : http://jforum.locahost/user/list -->
+<table border="1" cellpadding="5" style="border-collapse: collapse;">
+    <tr>
+        <th>Pseudo</th>
+        <th>E-Mail</th>
+        <th>Date d'inscription</th>
+        <th>Rang</th>
+        <th>Groupe(s)</th>
+    </tr>
+<?php
+foreach ($this->membres as $m) {
+    echo '<tr>';
+    echo '<td><a href="/user/profile/see/' . $m['id'] . '">' . $m['login'] . '</a></td>';
+    echo '<td>' . $m['email'] . '</td>';
+    echo '<td>' . $m['datetime'] . '</td>';
+    echo '<td>' . $m['rank']['name'] . '</td>';
+    echo '<td>'; foreach($m['groups'] as $gr) { echo '<span style="color: ' . $gr['color'] . ';">' . $gr['name'] . '</span><br />'; } echo '</td>';
+    echo '</tr>';
+}
+?>
+</table>

@@ -1,0 +1,182 @@
+/**************************************
+* MAIN
+**************************************/
+body
+{
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+    font: 0.8em "Trebuchet MS", helvetica, sans-serif;
+    background: #F5F5F5;
+}
+
+div#content
+{
+    width: 95%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/**************************************
+* HEADER
+**************************************/
+div#header
+{
+    border: 1px solid #708090;
+    height: 75px;
+    background: #FFFFFF;
+}
+div#header h1
+{
+    margin: 10px 10px 0px 10px;
+}
+div#header h2
+{
+    margin: 0px 0px 0px 30px;
+}
+div#headInfo
+{
+    text-align: right;
+    margin: 2px 3px 35px 2px;
+}
+div#headUser
+{
+    text-align: right;
+    margin: 3px;
+}
+
+/**************************************
+* HEADER - MENU
+**************************************/
+ul#menu
+{
+    height: 35px ;
+    margin: 0 ;
+    padding: 0 ;
+    list-style-type: none ;
+}
+ul#menu li
+{
+    float: left ;
+    text-align: center ;
+}
+ul#menu li a
+{
+    width: 110px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    background-color: #A4ADB7;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #708090;
+    border-right: 1px solid #708090;
+    border-top: none;
+}
+ul#menu li a.firstMenu
+{
+    border-left: 1px solid #708090;
+}
+ul#menu li a:hover
+{
+    background-color: #BAC1C9;
+}
+ul#menu li a.current
+{
+    background-color: #708090;
+}
+
+/**************************************
+* NAVIGATION
+**************************************/
+div#nav
+{
+    font-weight: bold;
+    margin: 0px 0px 5px 0px;
+}
+
+div#nav a
+{
+    color: #000000;
+    text-decoration: none;
+}
+div#nav a:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+/**************************************
+* MAIN
+**************************************/
+div#main
+{
+}
+
+div.listeSections, div.listeSujets, div.listeMessages
+{
+    border: 1px solid #708090;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+div.categorie
+{
+    border-bottom: 1px solid #708090;
+}
+
+div#action
+{
+    border: 1px solid #708090;
+    padding: 3px;
+    text-align: right;
+}
+
+div#formSujet, div#formMessage
+{
+    border: 1px solid #708090;
+    padding: 10px;
+}
+div#formSujet form, div#formMessage form
+{
+    width: 500px;
+    text-align: left;
+}
+/**************************************
+* FOOTER
+**************************************/
+div#footer
+{
+    margin-top: 5px;
+    border-top: 1px solid #708090;
+    text-align: right;
+}
+
+/**************************************
+* MISC
+**************************************/
+.error
+{
+    text-align: center;
+    color: red;
+    border: 1px solid red;
+}
+
+label
+{
+    width: 125px;
+    display: block;
+    float: left;
+}
+
+pre
+{
+    font-size: 12px;
+}
+
+img
+{
+    border: 0px;
+}

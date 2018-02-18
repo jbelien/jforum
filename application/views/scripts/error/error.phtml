@@ -1,0 +1,5 @@
+<!-- VUE : affichage des erreurs -->
+<h1>Erreur</h1>
+<p><?php echo $this->content; ?></p>
+
+<?php if (Zend_Registry::get('debug')) { echo nl2br($this->trace); } ?>

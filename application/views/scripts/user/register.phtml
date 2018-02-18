@@ -1,0 +1,25 @@
+<!-- VUE : Inscription d'un "user" : http://jforum.locahost/user/register -->
+<div align="center" style="padding: 10px;">
+    <form action="/user/register" method="post" style="text-align: left; width: 400px;">
+        <label for="login">Pseudo :</label>
+        <input type="text" name="login" id="login" value="<?php if (isset($this->login)) echo $this->login; ?>" size="35" />
+        <?php if (isset($this->errors['login'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['login'].'" />'; ?>
+        <br />
+
+        <label for="email">Adresse e-mail :</label>
+        <input type="text" name="email" id="email" value="<?php if (isset($this->email)) echo $this->email; ?>" size="35" />
+        <?php if (isset($this->errors['email'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['email'].'" />'; ?>
+        <br />
+
+        <label for="password1">Mot de passe :</label>
+        <input type="password" name="password1" id="password1" value="" size="35" />
+        <?php if (isset($this->errors['password1'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['password1'].'" />'; ?>
+        <br />
+        <label for="password2">Confirmation :</label>
+        <input type="password" name="password2" id="password2" value="" size="35" />
+        <?php if (isset($this->errors['password2'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['password2'].'" />'; ?>
+        <br />
+
+        <p align="center"><input type="submit" name="action" value="Envoyer" disabled="disabled" /></p>
+    </form>
+</div>

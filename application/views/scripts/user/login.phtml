@@ -1,0 +1,15 @@
+<!-- VUE : Connexion d'un "user" : http://jforum.locahost/user/login -->
+<div align="center" style="padding: 10px;">
+    <?php if (isset($this->error)) echo '<div class="error" style="width: 400px;">'.$this->error.'</div><br />'; ?>
+    <form action="/user/login" method="post" style="text-align: left; width: 400px;">
+        <label for="login">Pseudo :</label>
+        <input type="text" name="login" id="login" value="<?php if (isset($this->login)) echo $this->login; ?>" size="35" />
+        <br />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password" value="" size="35" />
+        <br />
+
+        <p align="center"><input type="submit" name="action" value="Envoyer" /></p>
+    </form>
+</div>

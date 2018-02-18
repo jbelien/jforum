@@ -1,0 +1,13 @@
+<!-- VUE : Ecriture d'un "message" : http://jforum.locahost/index/read/topic/# -->
+<div align="center" id="formMessage">
+    <form action="/index/post/topic/<?php echo $this->topic['id']; ?>" method="post">
+        Titre :&nbsp;&nbsp;<input type="text" name="title" id="title" value="<?php if (isset($this->form->title)) echo $this->form->titre; ?>" size="71" />
+        <?php if (isset($this->errors['title'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['title'].'" />'; ?>
+        <br />
+
+        <textarea name="content" cols="59" rows="10"></textarea>
+        <?php if (isset($this->errors['content'])) echo '<img src="/img/stop.png"  style="cursor: help;" title="'.$this->errors['content'].'" />'; ?>
+
+        <p align="center"><input type="submit" name="action" value="Envoyer" disabled="disabled" /></p>
+    </form>
+</div>

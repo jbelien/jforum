@@ -1,0 +1,16 @@
+<!-- VUE : Affichage d'un "user" : http://jforum.locahost/user/profile/see/# -->
+<table border="1" cellpadding="5" style="border-collapse: collapse;">
+    <tr><th align="right">Pseudo :</th><td><?php echo $this->member->login; ?></td></tr>
+    <tr><th align="right">Adresse e-mail :</th><td><?php echo $this->member->email; ?></td></tr>
+    <tr><th align="right">Date d'inscription :</th><td><?php echo $this->member->datetime; ?></td></tr>
+    <tr><th align="right">Rang :</th><td><?php echo $this->rank['name']; ?></td></tr>
+    <tr><th align="right" valign="top">Groupe(s) :</th><td><?php foreach($this->groups as $gr) { echo '<span style="color: ' . $gr['color'] . ';">' . $gr['name'] . '</span><br />'; } ?></td></tr>
+</table>
+<?php
+    if (isset($this->auth) && $this->member->id == $this->auth->id) {
+        echo '<div style="font-size: smaller; border-top: 1px solid #708090; margin-top: 5px;">';
+        echo '<a href="/user/profile/edit/' . $this->auth->id . '">Editer le profil</a>';
+        echo ' - <a href="/user/profile/delete/' . $this->auth->id . '">Supprimer le profil</a>';
+        echo '</div>';
+    }
+?>

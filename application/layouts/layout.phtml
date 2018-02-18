@@ -1,0 +1,34 @@
+<?php
+    // Le ZEND Framework nous aide à écrire les Headers, balises "Meta", "Title" et "Link"
+    // Voir : http://framework.zend.com/manual/fr/zend.view.helpers.html#zend.view.helpers.initial.placeholder.implementations
+    echo $this->doctype('XHTML1_TRANSITIONAL');
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <?php
+    $this->headMeta()
+         ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+         ->appendHttpEquiv('Content-Language', 'fr');
+    echo $this->headMeta();
+
+    $this->headTitle(Zend_Registry::get('name'))
+         ->headTitle($this->escape($this->title));
+    echo $this->headTitle()->setSeparator(' - ');
+
+    $this->headLink()
+         ->appendStylesheet('/css/main.css')
+         ->headLink(array('rel' => 'shortcut icon', 'href' => '/favicon.ico'));
+    echo $this->headLink();
+    ?>
+</head>
+
+<body>
+    <div id="content">
+        <?php /* Affichage du "header" */ echo $this->render('header.phtml'); ?>
+        <div id="main">
+            <?php /* Affichage de la vue */ echo $this->layout()->content; ?>
+        </div>
+        <?php /* Affichage du "footer" */echo $this->render('footer.phtml'); ?>
+    </div>
+</body>
+</html>
